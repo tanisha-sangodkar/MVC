@@ -10,7 +10,7 @@ namespace BookStore.Helper
     {
         public void LogException(Exception ex)
         {
-            string logFilePath = @"C:\Users\prath\source\repos\BookStore - Copy\BookStore\error.log";
+            string logFilePath = @"C:\Users\Hp1\Desktop\log\error.log";
 
             // Append the exception details to the log file
             using (StreamWriter writer = new StreamWriter(logFilePath, true))

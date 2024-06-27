@@ -177,19 +177,20 @@ namespace BookStore.Repository
                         {
                             while (reader.Read())
                             {
-                                CartDetails cartdetail = new CartDetails
-                                {
-                                    Id = (int)reader["id"],
-                                    CustomerId = (int)reader["CustomerId"],
-                                    FirstName = reader["FirstName"].ToString(),
-                                    BookId = (int)reader["BookId"],
-                                    BookName = reader["BookName"].ToString(),
-                                    Quantity = (int)reader["Quantity"],
-                                    Price = (int)reader["Price"],
-                                    TotalAmount = Convert.ToInt32(reader["TotalAmount"]),
-                                    OrderDate = Convert.ToDateTime(reader["OrderDate"]),
-                                    DeliveryStatus = reader["DeliveryStatus"].ToString()
-                                };
+                                CartDetails cartdetail = new CartDetails();
+
+
+                                   cartdetail.Id = (int)reader["id"];
+                                   cartdetail.CustomerId = (int)reader["CustomerId"];
+                                cartdetail.FirstName = reader["FirstName"].ToString();
+                                cartdetail.BookId = (int)reader["BookId"];
+                                cartdetail.BookName = reader["BookName"].ToString();
+                                cartdetail.Quantity = (int)reader["Quantity"];
+                                cartdetail.Price = (int)reader["Price"];
+                                cartdetail.TotalAmount = Convert.ToInt32(reader["TotalAmount"]);
+                                cartdetail.OrderDate = Convert.ToDateTime(reader["OrderDate"]);
+                                cartdetail.DeliveryStatus = reader["DeliveryStatus"].ToString();
+
                                 cartdetail.TotalAmount = cartdetail.Price * cartdetail.Quantity;
                                 cartdetails.Add(cartdetail);
                             }

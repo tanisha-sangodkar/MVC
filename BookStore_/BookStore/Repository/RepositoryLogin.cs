@@ -124,9 +124,9 @@ namespace BookStore.Repository
                                     admin.Password = reader["Password"].ToString();
                                 }
                             }
-                            string decryptPassword = DecryptPassword(admin.Password);
+                            //string decryptPassword = DecryptPassword(admin.Password);
 
-                            if (decryptPassword == user.Password)
+                            if (admin.Password == user.Password)
                             {
                                 return true;
                             }
