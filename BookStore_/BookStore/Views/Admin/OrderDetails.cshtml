@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BookStore.Models.CartDetails>
+@{
+    ViewBag.Title = "OrderDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+<div class="inventory-container">
+    <div class="order-box">
+        <table border="1" class="order-table">
+            <caption class="inventory-caption">Order Details</caption>
+            <tr class="tr-bottom th-font">
+                <th class="order-id">Order Id</th>
+                <th class="order-customerid">Customer Id</th>
+                <th class="order-firstname">First Name</th>
+                <th class="order-bookid">Book Id</th>
+                <th class="order-bookname">Book Name</th>
+                <th class="order-quantity">Quantity</th>
+                <th class="order-price">Price</th>
+                <th class="order-date">Order Date</th>
+                <th class="order-totalamount">Total Amount</th>
+                <th class="order-delstatus">Delivery status </th>
+            </tr>
+
+            @if (Model != null)
+            {
+                var modelList = Model.ToList();
+                foreach(var item in Model)
+                {
+                    <tr>
+                        <td> @item.Id</td>
+                        <td>@item.CustomerId</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.BookId</td>
+                        <td>@item.BookName</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Price</td>
+                        <td>@item.OrderDate.ToString("yyyy-MM-dd")</td>
+                        <td>@item.TotalAmount</td>
+                        <td>
+                            <form action="@Url.Action("OrderDetails", "Admin")" method="post">
+
+                                @Html.DropDownList(@*model => model.First().DeliveryStatus*@"DeliveryStatus", new List<SelectListItem>
+{
+new SelectListItem{Text="Order Confirmed",Value="Order Confirmed"},
+new SelectListItem{Text="Shipped",Value="Shipped"},
+new SelectListItem{Text="Delivered",Value="Delivered"},
+}, item.DeliveryStatus, new { @style = "width: 200px;", onchange = "this.form.submit();" })
+                                @Html.Hidden("Id", item.Id)
+                                @*@Html.Hidden("DeliveryStatus", item.DeliveryStatus)*@
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model BookStore.Models.OrderDetails
+@{
+    ViewBag.Title = "CustomerOrder";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<script src="~/Scripts/MyJs/CustomerOrder.js"></script>
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+<<div class="order-container">
+     <div class="order-box">
+         @using (Html.BeginForm("CustomerOrder", "Customer", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+         {
+             @Html.HiddenFor(model => model.Id)
+             <table class="order-table">
+                 <caption class="order-caption">Order Detail</caption>
+                 <tr>
+                     <td>
+                         <p> <img src="data:image/jpeg;base64,@Model.ImageData" alt="Profile Picture" width="300px" height="350px" /></p>
+                         <p>@Html.Label("Book name:")@Model.BookName </p>
+                         @Html.HiddenFor(model => model.BookName)
+                         @Html.HiddenFor(model => model.BookId)
+                         @Html.HiddenFor(model => model.ImageData)
+                         @*<p>@Html.Label("Author:")@Model.Author </p>
+                        @Html.HiddenFor(model => model.Author)
+                        <p>@Html.Label("Genre:")@Model.Genre </p>
+                        @Html.HiddenFor(model => model.Genre)
+                        <p>@Html.Label("Description:")@Model.Description </p>
+                        @Html.HiddenFor(model => model.Description)*@
+                         <p>@Html.Label("Price:")@Html.TextBoxFor(model => model.Price, new { @readonly = "true",@class= "order-textbox" })</p>
+                         <p>@Html.Label("Quantity:")@Html.TextBoxFor(m => m.Quantity, new { htmlAttributes = new { @class = "form-control", @value = "1" } })</p>
+                         <p>@Html.Label("Total Amount:")@Html.TextBoxFor(m => m.TotalAmount, new { @readonly = "true",@class= "order-textbox" })</p>
+                         <p><input type="submit" class="order-now" value="Order Now" /></p>
+
+                     </td>
+
+             </table>
+
+         }
+         <p>
+             <a href="@Url.Action("CustomerCart","Customer")">
+                 <button class="order-cancel">Cancel</button>
+             </a>
+        </p>
+         <p class="text-danger"> @ViewBag.Message</p>
+     </div>
+</div>
+
+

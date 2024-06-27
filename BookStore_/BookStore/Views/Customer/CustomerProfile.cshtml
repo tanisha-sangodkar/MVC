@@ -1,0 +1,37 @@
+﻿@model BookStore.Models.CustomerDetails
+@{
+    ViewBag.Title = "CustomerProfile";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+    <div class="profile-box">
+      
+        <table class="profile-table">
+            <caption class="profile-caption">My Profile</caption>
+            <tr>
+                <td>
+                    @*<img src="~/Content/Images/customer-profile-image.png" class="profile-img" />*@
+                     <img src="data:image/jpeg;base64,@Model.ImageData"  class="profile-img" />
+                </td>
+            @*edit profile here : it is mentioned by sir*@
+               
+            </tr>
+            <tr > 
+                <td >
+                    <div class="centered-row">
+                        <a href="@Url.Action("CustomerEdit", "Customer", new { id = Model.Id})"><button class="editbtn-profile">Edit Profile</button></a>
+                        <p>   @Html.Label("First Name:",new { @class = "profile-bold" }) @Model.FirstName</p>
+                        <p>   @Html.Label("Last Name:", new { @class = "profile-bold" }) @Model.LastName</p>
+                        <p> @Html.Label("Date of Birth:", new { @class = "profile-bold" })@Model.DateOfBirth</p>
+                        <p>@Html.Label("Age:", new { @class = "profile-bold" })@Model.Age</p>
+                        <p>@Html.Label("Email Id:", new { @class = "profile-bold" })@Model.EmailId</p>
+                        <p>@Html.Label("Phone Number:", new { @class = "profile-bold" })@Model.PhoneNumber</p>
+                        <p>@Html.Label("Gender:", new { @class = "profile-bold" }) @Model.Gender</p>
+                        <p> @Html.Label("State:", new { @class = "profile-bold" })@Model.State</p>
+                        <p> @Html.Label("City:", new { @class = "profile-bold" }) @Model.City</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+</div>
+

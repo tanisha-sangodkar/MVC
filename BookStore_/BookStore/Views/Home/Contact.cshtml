@@ -1,0 +1,73 @@
+﻿@model BookStore.Models.ContactUserDetails
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/HomePageLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/Validation.js"></script>
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+    <div class="contact-table">
+        <h2 class="contact-h">Contact us</h2>
+        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>@Html.Label("First name:")</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(model => model.FirstName, new { @style = "width: 200px;" })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })<br />
+                        <span id="firstNameErrorMessage" class="text-danger"></span><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Label("Email id:")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(m => m.EmailId, new { @style = "width: 200px;" })
+                        @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })<br />
+                        <span id="emailErrorMessage" class="text-danger"></span><br />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.Label("Suggesstion:")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextAreaFor(m => m.Suggesstion, new { @class = "form-control", @rows = 5, @cols = 26 })
+                        @Html.ValidationMessageFor(model => model.Suggesstion, "", new { @class = "text-danger" })<br />
+                        <span id="suggesstionErrorMessage" class="text-danger"></span><br />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Label("Phone number:")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @style = "width: 200px;" })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })<br />
+                        <span id="phoneNumberErrorMessage" class="text-danger"></span><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                        <input type="submit" id="submit_form" value="Save changes" class="contact-btn" />
+                    </td>
+                </tr>
+            </table>
+            <div style="color:green"> @ViewBag.SuccessMessage </div>
+            <div class="text-danger"> @ViewBag.FailureMessage</div>
+        }
+
+    </div>
+

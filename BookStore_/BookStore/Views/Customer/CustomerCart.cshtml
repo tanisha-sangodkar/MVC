@@ -1,0 +1,108 @@
+﻿@model IEnumerable<BookStore.Models.CartDetails>
+@{
+    ViewBag.Title = "CustomerCart";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/CustomerCart.js"></script>
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+@*<script src="~/Scripts/MyJs/CustomerOrder.js"></script>*@
+
+@*<div class="cart-container">*@
+@if (Model.Count() == 0)
+{
+    <h1 class="cart-empty">Cart Is Empty!!! Go Shop Now...</h1>
+}
+else
+{
+    <div class="cart-box">
+        <table class="cart-del-table">
+            <caption class="order-caption">Cart Details</caption>
+            <tr>
+                <th class="order-table-th">
+                    Book Image
+                </th>
+                <th class="order-table-th">
+                    Book name
+                </th>
+                <th class="cart-price">
+                    Price
+                </th>
+                <th class="cart-quantity">
+                    Quantity
+                </th>
+                <th>
+                    Total Amount
+                </th>
+                <th>Action</th>
+            </tr>
+            @{
+                decimal grandTotal = 0;
+            }
+            @foreach (var item in Model)
+            {
+                <tr id="@item.Id" class="book-detail">
+                    <td> <img src="data:image/jpeg;base64,@item.BookImage" class="inv-img-border" width="200px" height="250px" /></td>
+                    <td class="cart-td"> @item.BookName</td>
+                    <td class="cart-td" id="price">@item.Price</td>
+                    <td class="cart-td-q" id="quantity">
+                        <div class="block-element">
+                            <a href="@Url.Action("UpdateQuantity", "Customer", new {count=-1, cartid=item.Id})" class="minus-link"  id="decrement">
+                                <button type="button" onclick="decrement(@item.Id)">
+                                    -
+                                </button>
+                            </a>
+
+                            @Html.TextBoxFor(modelItem => item.Quantity, new
+                            {
+                                @class = "quantity-textbox",@*onchange = $"updateTotalAmount('{item.Id}')"*@@readonly = true
+})
+                            <a href="@Url.Action("UpdateQuantity", "Customer", new {count=1, cartid=item.Id})">
+                                <button type="button" onclick="increment(@item.Id)">+</button>
+                            </a>
+                        </div>
+                    </td>
+                   @Html.ValidationMessageFor(modelItem=>item.Quantity,"", new { @class = "text-danger" })
+                    <td class="cart-td-ta">
+                        @Html.TextBoxFor(modelItem => @item.TotalAmount, new { @readonly = "true",@class="no-border" })
+                        @*@item.TotalAmount*@
+                    </td>
+                    <td>
+                        <a href="@Url.Action("CustomerOrder", "Customer", new {bookid = item.BookId, customerid=item.CustomerId})"><button class="cart-btn">Buy</button></a>
+                        <a href="@Url.Action("DeleteCartItem", "Customer", new { bookid = item.BookId, customerid = item.CustomerId })"><button class="cart-remove-btn">Remove</button></a>
+                    </td>
+                </tr>
+            }
+            <!--Grand Total Row -->
+            <tr class="grand-total-tr">
+                <td colspan="4" class="cart-td">
+                    <strong> Grand Total </strong>
+                </td>
+                <td class="cart-td-ta">
+                    <strong><p> (Rs)<span id="grand-total"></span></p> </strong>
+                </td>
+           
+                <td> 
+                    <form id="buyAllForm" action="@Url.Action("CustomerBuyAll", "Customer")" method="post">
+                        @foreach (var item in Model)
+                        {
+                            <input type="hidden" name="orderDetails.Index" value="@item.Id" />
+                            <input type="hidden" name="orderDetails[@item.Id].Id" value="@item.Id" />
+                            <input type="hidden" name="orderDetails[@item.Id].FirstName" value="@item.FirstName" />
+                            <input type="hidden" name="orderDetails[@item.Id].LastName" value="@item.LastName" />
+                            <input type="hidden" name="orderDetails[@item.Id].BookId" value="@item.BookId" />
+                            <input type="hidden" name="orderDetails[@item.Id].BookName" value="@item.BookName" />
+                            <input type="hidden" name="orderDetails[@item.Id].Quantity" value="@item.Quantity" />
+                            <input type="hidden" name="orderDetails[@item.Id].Price" value="@item.Price" />
+                            <input type="hidden" name="orderDetails[@item.Id].TotalAmount" value="@item.TotalAmount" />
+
+                        }
+                        <button type="submit" class="cart-buyall">Buy All</button>
+                    </form>
+                    
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+@*</div>*@

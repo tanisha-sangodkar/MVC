@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BookStore.Models.BookDetails>
+@{
+    ViewBag.Title = "CustomerHomePage";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/Cart.js"></script>
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+
+<div class="search-book-name">
+    <form action="@Url.Action("SearchBook", "Customer")" method="post">
+        @Html.TextBox("searchQuery", null, new { @class = "search-input", placeholder = "Search by book name", size = "70px" })
+        <input type="submit" class="search-btn" value="Search"></input>
+    </form>
+</div>
+
+@if (Model.Count() == 0)
+{
+    <h1 class="cart-empty">No Book To Display</h1>
+}
+else
+{
+    <div style="color: red; text-align: center; font-size: 25px;"  id="error">
+        @ViewBag.ErrorMessage
+    </div>
+    <div class="book-display">
+
+        @foreach (var item in Model)
+        {
+            <div class="book-box">
+                <div class="img-btn-center">
+
+                    <img src="data:image/jpeg;base64,@item.BookImage" alt="Profile Picture" width="220px" height="280px" />
+                </div>
+                <p>
+                    @item.BookName
+                </p>
+                <p> @Html.Label("Rs") @item.Price</p>
+
+                @Html.Hidden("Id", item.Id)
+
+                @if (item.Quantity == 0)
+                {
+                    <td>@Html.Label("OUT OF STOCK", new { @style = "color:red;font-size: 36px;" })</td>
+                }
+                else
+                {
+                    <form action="@Url.Action("CustomerCart", "Customer")" method="post">
+                        @Html.Hidden("Id", item.Id)
+                        @Html.Hidden("BookName", item.BookName)
+                        @Html.Hidden("Quantity", item.Quantity)
+                        @Html.Hidden("Price", item.Price)
+                        @Html.Hidden("TotalAmount", item.TotalAmount)
+                        <input type="submit" class="buy-btn addToCartBtn" data-item-id="@item.Id" value="Add to Cart"></input>
+                        <div class="message" id="message_@item.Id" style="color: green; font-size: 18px; margin-top: 10px;"></div>
+                    </form>
+
+                    <a href="@Url.Action("CustomerBuy", "Customer", new { id = item.Id })"><button class="buy-btn">Buy</button></a><br />
+
+                }
+
+
+            </div>
+        }
+
+    </div>
+
+}

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BookStore.Models.CartDetails>
+
+@{
+    ViewBag.Title = "CustomerOrderdetails";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+<p class="back-button">
+    @Html.ActionLink("Back", "CustomerHomePage", "Customer")
+</p>
+<div>
+    <div class="order-detail-table">
+        <table border="0">
+            <caption class="order-caption">Order Details</caption>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>                 
+
+                     <td>
+                         <p> @Html.Label("Book Name", new {@style="font-weight:bold"}) : @item.BookName</p>
+                         <p>@Html.Label("Price", new { @style = "font-weight:bold" }): @item.Price</p>
+                         <p>@Html.Label("Quantity", new { @style = "font-weight:bold" }):  @item.Quantity</p>
+                         <p> @Html.Label("Total Amount", new { @style = "font-weight:bold" }):   @item.TotalAmount</p>
+                         <p> @Html.Label("Order Date", new { @style = "font-weight:bold" }):   @item.OrderDate.ToString("yyyy-MM-dd")</p>
+                         <p class="order-delivery-status"> @Html.Label("Delivery Status", new { @style = "font-weight:bold" }): @item.DeliveryStatus</p>
+                     </td>                        
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

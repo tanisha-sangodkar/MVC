@@ -1,0 +1,70 @@
+﻿@model BookStore.Models.LoginUserDetails
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/HomePageLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/Validation.js"></script>
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+
+<div class="login-box">
+    <h2>Login</h2>
+    <img src="~/Content/Images/login_employee.jpg" width="80px" height="80px" />
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <table class="login-table">
+            <tr>
+                <td>@Html.Label("Username:")</td>
+            </tr>
+            <tr>
+                <td> @Html.TextBoxFor(m => m.UserName, new { @style = "width:250px;" })</td>
+            </tr>
+            <tr>
+
+                <td>
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    <span id="emailErrorMessage" class="text-danger"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.Label("Password:")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <abbr title="expects uppercase,lowercase,digits,special characters">
+                        @Html.PasswordFor(m => m.Password, new { @style = "width:250px;" })
+                    </abbr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    <span id="passwordErrorMessage" class="text-danger"></span>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br /> <input type="checkbox" name="remember" />
+                    <label>
+                        Remember me
+                    </label>&nbsp;
+                    <a href="#">Forgot password</a>
+                </td>
+            </tr>
+        </table><br />
+        <br />
+        <input type="submit" id="submit_form" value="Login" class="login-submit-btn" /><br />
+        <span style="color:red"> @ViewBag.message</span>
+    }
+    <div>
+        <br />
+        Not a member?<a href="@Url.Action("Registration","Home")">Register</a>
+    </div>
+</div>
+
+
+
+

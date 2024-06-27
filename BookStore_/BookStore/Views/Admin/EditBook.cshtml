@@ -1,0 +1,159 @@
+﻿@model BookStore.Models.BookDetails
+@{
+    ViewBag.Title = "EditBook";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+<script src="~/Scripts/MyJs/BookValidation.js"></script>
+<div class="box">
+    <h2>Book Details</h2>
+    @using (Html.BeginForm("EditBook", "Admin", FormMethod.Post, new { id = "myForm", @enctype = "multipart/form-data" }))
+    {
+        @*@Html.AntiForgeryToken()*@
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+        <table>
+            <tr>
+                <td>
+                    @Html.Label("Book Id:")
+                </td>
+            </tr>
+            <tr>
+                <td> @Html.TextBoxFor(m => m.Id, new { @style = "width: 200px;", @readonly = "true" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Book Name:")</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(m => m.BookName, new { @style = "width: 200px;" })
+                    @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })<br />
+                    <span id="BookNameErrorMessage" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Book Author:")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(m => m.Author, new { @style = "width: 200px;" })
+                    @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })<br />
+                    <span id="AuthorErrorMessage" class="text-danger"></span>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Book  Genre:")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(model => model.Genre, new { @style = "width: 200px;" })
+                    @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "text-danger" })<br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Book Description:")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(model => model.Description, new { @style = "width: 200px;" })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })<br />
+                    <span id="ageErrorMessage" class="text-danger"></span>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Book Price:")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(m => m.Price, new { @style = "width: 200px;" })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })<br />
+                    <span id="emailErrorMessage" class="text-danger"></span>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.Label("Book Quantity:")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(m => m.Quantity, new { @style = "width: 200px;" })
+                    @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                    <br />
+                    <span id="passwordErrorMessage" class="text-danger"></span>
+
+
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Book Pages:")</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(m => m.Pages, new { @style = "width: 200px;" })
+                    @Html.ValidationMessageFor(model => model.Pages, "", new { @class = "text-danger" })<br />
+                    <span id="confirmPasswordErrorMessage" class="text-danger"></span>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Language:")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(m => m.Language, new { @style = "width: 200px;" })
+                    @Html.ValidationMessageFor(model => model.Language, "", new { @class = "text-danger" })<br />
+                    <span id="phoneNumberErrorMessage" class="text-danger"></span>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Publication Year:")
+
+            <tr>
+                <td>
+                    @Html.TextBoxFor(m => m.PublicationYear, new { @style = "width: 200px;" })
+                    @Html.ValidationMessageFor(model => model.PublicationYear, "", new { @class = "text-danger" })<br />
+                    <span id="PublicationYearErrorMessage" class="text-danger"></span>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Upload image:</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" id="bookImage" name="bookImage" required /><br />
+                    <span id="fileErrorMessage" class="text-danger"></span>
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="register-button-submit-reset">
+            <input type="submit" id="submit_form" value="Submit" class="submit-btn" />@*<input type="reset" class="reset-inter-spacing" id="submit_form" value="Reset" />*@
+            <button type="reset" class="reset-btn"><a href="@Url.Action("ResetUser")" class="reset-btn">Reset</a></button>
+        </div>
+        <div class="successful">
+            @ViewBag.SuccessMessage
+        </div>
+    }
+
+</div>
+
+
+

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BookStore.Models.CustomerDetails>
+@{
+    ViewBag.Title = "CustomerDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+<div class="inventory-container">
+    <div class="inventory-box">
+        <table border="1" class="customer-det-table">
+            <caption class="inventory-caption">Customer Details</caption>
+            <tr class="tr-bottom th-font">
+                <th class="padding-customerdetails">Customer Id</th>
+                <th class="padding-customerdetails">First Name</th>
+                <th class="padding-customerdetails">Last Name</th>
+                <th class="padding-customerdetails">Date Of Birth</th>
+                <th class="padding-customerdetails">Age</th>
+                <th class="padding-customerdetails">EmailId</th>
+                <th class="padding-customerdetails">Phone Number</th>
+                <th class="padding-customerdetails">Gender</th>
+                <th class="padding-customerdetails">State</th>
+                <th class="padding-customerdetails">City</th>
+                <th class="padding-customerdetails">Username</th>
+                <th class="padding-customerdetails">Image</th>
+                <th class="padding-customerdetails-remove">Remove</th> <!-- Only the remove button -->
+            </tr>
+
+            @foreach(var item in Model)
+            {
+               <tr>
+                   <td>@item.Id</td>
+                   <td>@item.FirstName</td>
+                   <td>@item.LastName</td>
+                   <td> @item.DateOfBirth.ToString("dd-MM-yyyy")</td>
+                   <td>@item.Age</td>
+                   <td>@item.EmailId</td>
+                   <td>@item.PhoneNumber</td>
+                   <td>@item.Gender</td>
+                   <td>@item.State</td>
+                   <td>@item.City</td>
+                   <td>
+                       @item.UserName
+                   </td>
+                   <td>
+                       <img src="data:image/jpeg;base64,@item.ImageData" alt="Profile Picture" width="200px" height="200px" />
+                   </td>
+                   <td>
+                       <a href="@Url.Action("DeleteCustomer", "Admin", new { Id= @item.Id })"> <button class="customer-remove-btn">Remove</button></a>
+                   </td>
+
+               </tr>
+
+            }
+        </table>
+    </div>
+</div>
+
+

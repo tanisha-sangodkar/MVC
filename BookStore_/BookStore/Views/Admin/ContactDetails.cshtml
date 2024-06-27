@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BookStore.Models.ContactUserDetails>
+@{
+    ViewBag.Title = "ContactDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+<div class="inventory-container">
+    <div class="customer-inventory-box ">
+        <table border="1" class="contact-det-table" >
+            <caption class="inventory-caption">Contact Details</caption>
+            <tr >
+                <th class="contact-th-id">Id</th>
+                <th class="contact-th-first-email">First Name</th>
+                <th class="contact-th-first-email">EmailId</th>
+                <th class="contact-th-suggesstion">Suggesstion</th>
+                <th class="inv-th">Phone Number</th>
+            </tr>
+            @if(Model==null)
+            {
+               <p>NO DETAILS</p>
+            }
+          else { 
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.EmailId</td>
+                    <td>@item.Suggesstion</td>
+                    <td>@item.PhoneNumber</td>
+                </tr>
+
+            }
+            }
+        </table>
+    </div>
+    </div>

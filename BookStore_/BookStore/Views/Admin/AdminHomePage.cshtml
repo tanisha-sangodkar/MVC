@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "AdminHomePage";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+<div class="ad-dashboard">
+
+    <div class="zoom book-inventory">
+
+        <a href="@Url.Action("BookInventory","Admin")"><h2 class="book-inventory">Book Inventory</h2></a>
+    </div>
+
+
+    <div class="zoom customer-details">
+
+
+        <a href="@Url.Action("CustomerDetails","Admin")"> <h2 class="customer-details"> Customer Details</h2></a>
+    </div>
+
+    <div class="zoom contactus-details">
+
+        <a href="@Url.Action("ContactDetails","Admin")"> <h2 class="contactus-details"> Contact us Details</h2></a>
+    </div>
+
+    <div class="zoom orderdetails">
+
+        <a href="@Url.Action("OrderDetails","Admin")"> <h2 class="orderdetails"> Order Details</h2></a>
+    </div>
+
+    <div class="zoom add-new-admin">
+
+        <a href="@Url.Action("AddAdmin","Admin")"><h2 class="add-new-admin"> Add New Admin</h2></a>
+    </div>
+
+    <div class="zoom change-password">
+
+        <a href="@Url.Action("AdminChangePassword","Admin")">  <h2 class="change-password"> Change Password</h2></a>
+    </div>
+
+    <div class="zoom">
+
+        <a href="@Url.Action("AdminLogout", "Home")"><h2>Log out</h2></a>
+    </div>
+</div>
+</div>
+

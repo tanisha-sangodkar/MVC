@@ -1,0 +1,45 @@
+﻿@model BookStore.Models.BookDetails
+@{
+    ViewBag.Title = "CustomerBuy";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<script src="~/Scripts/MyJs/CustomerOrder.js"></script>
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+<<div class="cart-container">
+     <div class="cart-box">
+         @using (Html.BeginForm("CustomerBuy", "Customer", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+         {
+             @Html.HiddenFor(model => model.Id);
+             <table class="order-table">
+                 <caption class="order-caption">Order Details</caption>
+                 <tr>
+                     <td>
+                         <p><img src="data:image/jpeg;base64,@Model.BookImage" alt="Profile Picture" width="220px" height="280px" /></p>
+                         <p>@Html.Label("Book name:")@Model.BookName </p>
+                         @Html.HiddenFor(model => model.BookName)
+                         <p>@Html.Label("Author:")@Model.Author </p>
+                         @Html.HiddenFor(model => model.Author)
+                         <p>@Html.Label("Genre:")@Model.Genre </p>
+                         @Html.HiddenFor(model => model.Genre)
+                         <p>@Html.Label("Description:")@Model.Description </p>
+                         @Html.HiddenFor(model => model.Description)
+                         <p>@Html.Label("Price:")@Html.TextBoxFor(model => model.Price, new { @readonly = "true" })</p>
+                         <p>@Html.Label("Quantity:")@Html.TextBoxFor(m => m.Quantity)</p>
+                         <p>@Html.Label("Total Amount:")@Html.TextBoxFor(m => m.TotalAmount, new { @readonly = "true" })</p>
+                         <p><input type="submit" class="order-now" value="Order Now" /></p>
+
+                     </td>
+                 </tr>
+             </table>
+         }
+         <p>
+             <a href="@Url.Action("CustomerHomePage","Customer")">
+                 <button class="buy-cancel">Cancel</button>
+             </a>
+         </p>
+     </div>
+</div>
+
+
+

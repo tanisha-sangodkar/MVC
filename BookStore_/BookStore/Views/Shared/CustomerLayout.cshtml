@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CustomerLayout</title>
+    <link href="~/Content/Css/StyleSheet1.css" rel="stylesheet" />
+    <link href="~/Content/Css/CustomerStylesheet.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="icon">
+            <a href=""><img src="~/Content/Images/Book-logo.png" /></a><label class="header_Text">BookStore</label>
+        </div>
+
+
+        <div class="navbar">
+            <p>Welcome @Session["UserName"]!</p>
+            <a href="@Url.Action("CustomerHomepage","Customer")">Home</a>&nbsp;           
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="~/Content/Images/profile-icon.jpg" class="profile-img" />
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="@Url.Action("CustomerProfile","Customer")">My Profile</a>
+                    <a href="@Url.Action("CustomerCart","Customer")">Cart</a>
+                    <a href="@Url.Action("CustomerOrderDetail","Customer")">My Orders</a>
+                    <a href="@Url.Action("CustomerPasswordChange","Customer")">Change Password</a>
+                    <a href="@Url.Action("UserLogout","Home")" class="logout-option">Logout</a>
+                </div>
+            </div>
+        </div>
+
+</header>
+    <div class="main-container">
+        @RenderBody()
+    </div>
+    <div class="footer">
+        <footer>
+            <div class="footer-icon">
+                <ul style="list-style-type:none">
+                    <li>
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <img src="~/Content/Images/facebook-icon.png" "alt=" Facebook" />&nbsp;Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/" target="_blank">
+                            <img src="~/Content/Images/insta-icon.png" alt="Instagram" />&nbsp;Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com/" target="_blank">
+                            <img src="~/Content/Images/twitter-icon.png" alt="Twitter" />&nbsp;Twitter
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>
+                Stay connected with us on social media for the latest updates and book
+                recommendations.
+            </p>
+            <p>Panjim,Goa</p>
+            <p>&copy; Bookstore All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

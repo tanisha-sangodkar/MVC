@@ -1,0 +1,277 @@
+﻿body {
+    margin: 0px;
+}
+
+.main-container {
+    background-color: #00cc99;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* homepage layout*/
+.header {
+    position: static;
+    border-bottom: 5px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    font-size: 20px;
+    font-family: inherit;
+}
+
+.Homepage-text {
+    color: black;
+    font-size: 60px;
+    text-align: center;
+}
+
+.icon img {
+    width: 100px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.header_Text {
+    font-size: 40px;
+}
+
+.navigation a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+/*Home page image caruosel*/
+.carousel {
+    position: relative;
+    margin: auto;
+    width: 950px;
+    height: 600px;
+    box-shadow: 0px 0px 3px grey;
+    border-radius: 10px;
+}
+
+.slide {
+    display: none
+}
+
+    .slide img {
+        width: 950px;
+        height: 600px;
+        border-radius: 10px;
+    }
+
+.prev, .next {
+    border-radius: 50%;
+    margin-top: 150px;
+    cursor: pointer;
+    position: absolute;
+    top: 10%;
+    padding: 8px 20px;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.next {
+    right: 0px;
+}
+/*login*/
+.login-box {
+    border-radius: 25px;
+    height: 100%;
+    width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    padding-top: 10px;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom:5%;
+}
+
+.login-table {
+    padding-left: 60px;
+    text-align: left;
+}
+
+.login-submit-btn {
+    width: 250px;
+    background-color: lightblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/*register*/
+.box {
+    border-radius: 25px;
+    height: 100%;
+    width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-size: 18px;
+    padding-left:230px;
+}
+
+.reset-btn {
+    text-decoration: none; /* Remove underline */
+    color: #333;
+    padding: 5px;
+    background-color: lightgray;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.submit-btn {
+    margin-top: 20px;
+    padding: 5px;
+    width: 140px;
+    background-color: lightblue;
+    font-size: 15px;
+}
+
+.successful {
+    color: green;
+}
+
+.unsuccessful {
+    color: red;
+}
+/*Contact page*/
+.contact-table {
+    border-radius: 25px;
+    height: 100%;
+    width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    padding-left: 150px;
+    font-size: 18px;
+}
+
+.contact-btn {
+    position: relative;
+    width: 210px;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: lightblue;
+    font-size: 16px;
+}
+
+.contact-h {
+    padding-left: 25px;
+    padding-top: 30px;
+    font-size: 35px;
+}
+
+.contact-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/*About page*/
+.about-h-continer {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 36px;
+}
+
+.p-about {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 30px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.about-p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/*footer content*/
+.footer {
+    border-top: 5px solid black;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+.footer img {
+     width: 15px;
+     height: 15px;
+     text-align: left;
+     margin-left: 0px;
+}
+
+.footer .footer-icon {
+    margin-left: 30px;
+    float: left !important;
+    text-align: left;
+}
+
+/*now trending and new arrival bar*/
+.main-page-trending {
+    margin-top: 70px;
+    border-top: 3px solid black;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+    .main-page-trending img {
+        padding-left: 18px;
+        width: 170px;
+        height: 300px;
+    }
+
+.main-page-hurry img {
+    margin-top: 50px;
+    border-top: 3px solid black;
+    width: 900px;
+    height: 500px;
+    margin-left: 300px;
+    border-radius: 20px;
+    border-left: 3px solid black;
+}
+
+.main-page-arrival {
+    margin-top: 100px;
+    border-top: 3px solid black;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+    .main-page-arrival img {
+        padding-left: 18px;
+        width: 170px;
+        height: 300px;
+    }
+
+    /*validation js*/
+    .text-danger{
+        color:red;
+        font-size:14px;
+    }

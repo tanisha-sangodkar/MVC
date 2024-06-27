@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BookStore.Models.BookDetails>
+@{
+    ViewBag.Title = "BookInventory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/MyJs/preventBack.js"></script>
+<script src="~/Scripts/MyJs/BookValidation.js"></script>
+<div class="inventory-container">
+    <a href="@Url.Action("AddNewBook","Admin")"> <button class="addbtn-book">Add New Book</button></a>
+    <div class="bookinventory-box">
+
+        <table border="1" class="table-border-collapse">
+
+            <caption class="inventory-caption">Book Inventory</caption>
+            <tr class="tr-bottom th-font">
+                <th class="inv-book-item">Book item</th>
+                <th class="inv-book-name inv-th">Book name</th>
+                <th class="inv-price inv-th">Price</th>
+                <th class="inv-quantity inv-th">Quantity</th>
+                <th class="inv-amount inv-th">Pages</th>
+                <th class="inv-action">Edit/Delete </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr class="tr-top">
+                    <td>
+                        <img src="data:image/jpeg;base64,@item.BookImage" class="inv-img-border" />
+                    </td>
+                    <td class="inv-book-name">
+                        <p>
+                            @item.BookName
+                        </p>
+                    </td>
+                    <td class="inv-price">
+                        @item.Price
+                    </td>
+                    <td class="inv-quantity">
+                        <p>@item.Quantity</p>
+                    </td>
+                    <td class="inv-amount">
+                        <p>@item.Pages</p>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditBook","Admin",new { Id =item.Id })"> <button class="inv-edit-btn">Edit</button></a>&nbsp;
+                        <form action="@Url.Action("DeleteBook", "Admin")" method="post">
+                            @Html.Hidden("Id", item.Id)
+                            <button class="inv-del-btn" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+                    </td>
+
+                </tr>
+
+            }
+
+        </table>
+    </div>
+</div>
+

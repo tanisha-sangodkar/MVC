@@ -1,0 +1,594 @@
+﻿/*User page body content*/
+
+/*user home page*/
+.search-book-name {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 1260px;
+    /* height: 70px; */
+    background-color: white;
+    /* margin: 0 auto; */
+    margin-left: 120px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.search-input {
+    font-size: 18px;
+    height: 40px;
+    padding: 2px;
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+.search-btn {
+    background-color: #0492C2;
+    height: 50px;
+    padding: 2px;
+    width: 90px;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.block-element{
+    display:inline-block;
+}
+.book-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100%;
+    width: 1200px;
+    margin-top: 20px;
+    margin-left: 120px;
+    /* margin-right: 150px;*/
+    padding-left: 40px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.buy-btn {
+    background-color: #6495ED;
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.minus-link{
+    text-decoration:none;
+}
+
+.book-box {
+    display: inline-block;
+    overflow: hidden;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 20px;
+    background-color: white;
+    border-radius: 40px;
+    border: 2px solid black;
+    margin-top: 20px;
+    /*display: flex;*/
+    justify-content: center;
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+
+.img-btn-center {
+    display: block;
+    padding: 10px;
+}
+
+/* order page*/
+.order-container {
+    padding: 10px;
+    margin-left: 30%;
+    margin-right: 25%;
+}
+
+.order-box {
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    margin-bottom:35%;
+    padding-left:10%;
+    padding-right:10%;
+}
+/*Cart page*/
+
+/*.cart-container {
+    padding: 10px;
+    margin-left: 15%;
+    margin-right: 25%;
+}*/
+
+.cart-box {
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 10%;
+    margin-left: 20%;
+    margin-top: 3%;
+    width:1000px;
+}
+.cart-img-border {
+    width: 220px;
+    height: 280px;
+    border: 5px solid #d5d5c3;
+}
+
+.cart-caption {
+    caption-side: top;
+    margin-left: 60px;
+    font-weight: bold;
+    font-size: 48px; /* Adjust the font size as needed */
+    padding: 10px;
+}
+
+.book-item, .order-book-item {
+    padding: 30px;
+    width: 250px;
+}
+
+.book-name, .order-book-name {
+    text-align: center;
+    width: 300px;
+}
+
+.book-price, .order-book-price {
+    text-align: center;
+    width: 100px;
+}
+
+.book-quantity {
+    text-align: center;
+    width: 500px;
+}
+.quantity-textbox{
+    width:20px;
+}
+.book-amount {
+    text-align: center;
+    width: 200px;
+}
+
+.cart-action-remove {
+    width: 200px;
+}
+
+.cart-remove-btn {
+    padding: 10px;
+    width: 90px;
+    margin-left: 4%;
+    background-color: white;
+    border-radius: 20px;
+    border-width:4px;
+    border-color:red;
+}
+
+.no-border {
+    border: none;
+    text-align: center;
+}
+    .cart-remove-btn:hover{
+        background-color:red;
+    }
+    .order-cancel {
+        width: 60%;
+        padding: 10px;
+        background-color: white;
+        font-size: 14px;
+        border-radius: 20px;
+        margin-left: 20%;
+        border-color: red;
+        border-width: 4px;
+    }
+
+.cart-table {
+    border-collapse: collapse;
+}
+
+.th-font {
+    font-size: 20px;
+}
+
+.tr-bottom {
+    border-bottom: 1px solid black;
+}
+
+.tr-top {
+    border-top: 1px solid black;
+}
+/*header section*/
+.navbar {
+    overflow: hidden;
+    background-color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+  float: left;
+    font-size: 16px;
+    color: Black;
+    text-align: center;
+     padding: 14px 16px;
+    text-decoration: none;
+   font-size: 20px;
+   font-weight: bold;
+    }
+
+.dropdown {
+    float: right;
+    overflow: hidden;
+}
+
+.dropdown, .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: white;
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 10px;
+ 
+}
+
+ .dropdown-content a {
+     float: none;
+     color: black;
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+     text-align: left;
+    }
+
+.navbar .dropdown .dropdown-content .logout-option a:hover {
+    background-color: red !important;
+}
+
+.dropdown-content a:hover {
+    background-color: lightgray;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.navbar .dropdown .dropbtn .profile-img { /*Profile image*/
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+/*customer order page*/
+.order-book-quantity {
+    text-align: center;
+    width: 300px;
+}
+
+.order-book-amount {
+    text-align: center;
+    width: 150px;
+}
+
+.order-del-status {
+    text-align: center;
+    width: 200px;
+}
+
+.caption {
+    caption-side: top;
+    margin-left: 130px;
+    font-weight: bold;
+    font-size: 48px; /* Adjust the font size as needed */
+    padding: 10px;
+}
+
+/*Customer profile page*/
+
+.profile-box {
+    width: 600px;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.profile-table {
+    width: 100%;
+    text-align: center;
+}
+
+
+.profile-caption {
+    caption-side: top;
+    font-weight: bold;
+    font-size: 48px; /* Adjust the font size as needed */
+    padding: 10px;
+}
+.editbtn-profile {
+    padding: 10px;
+    border-radius: 20px;
+    width: 38%;
+    border-color: lightblue;
+    border-width: 5px;
+    background-color: white;
+}
+
+    .editbtn-profile:hover {
+        background-color: lightblue;
+    }
+.centered-row {
+    margin-left: 38%;
+    text-align: left;
+}
+
+.profile-bold{
+    font-weight:bold;
+}
+/*Update*/
+.update-caption {
+    font-size: 35px;
+    padding: 15px;
+    font-weight: bold;
+}
+/*change user password*/
+.change-pass-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.change-pass-box {
+    display: flex;
+    justify-content: center;
+    width: 700px;
+    height: 100%;
+    background-color: white;
+    margin: 0 auto;
+    /* padding-left: 100px; */
+    /* padding-left: 100px; */
+    padding-bottom: 20px;
+    padding-top: 50px;
+    border-radius: 50px;
+}
+
+/*customer cart*/
+.order-caption{
+    text-align:center;
+    padding:10px;
+    font-size:80px;
+    font-weight:bold;
+
+}
+
+
+.cart-empty {
+    padding: 10%;
+    /* margin-left: 2%; */
+    /* margin-right: 25%; */
+    font-size: 40px;
+    color: orange;
+    border: 2px solid black;
+    background-color: white;
+    width: 20%;
+    height: 100%;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.grand-total-tr {
+    border-top: 2px solid black;
+}
+.order-detail-table {
+    width: 40%;
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 15%;
+    padding-bottom: 20px;
+    font-size: 16px;
+    margin: 0 auto;
+}
+
+.orderdetail-caption {
+    font-size: 40px;
+    font-weight: bold;
+}
+.order-delivery-status {
+    border-bottom: 2px solid black;
+}
+.order-table {
+    margin: 0 auto;
+}
+
+.order-table-th {
+    width: 20%;
+    padding: 20px;
+}
+.back-button {
+    font-size: 12px;
+    border: 1px solid black;
+    background-color: white;
+    width: 60px;
+    padding: 15px;
+    margin-left: 10%;
+    text-align: center;
+    border-radius: 20px;
+}
+.cart-td {
+    padding-left: 20px;
+}
+.cart-price {
+    width: 13%;
+}
+
+.cart-td-q {
+    padding-left: 30px;
+}
+}
+
+.cart-td-ta {
+    padding-left: 40px;
+}
+
+.cart-btn {
+    background-color: white;
+    margin-left: 5%;
+    width: 90px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 5%;
+    border-radius: 20px;
+    border-width:4px;
+    border-radius:20px;
+    border-color:lightblue;
+}
+.cart-btn:hover {
+    background-color: lightblue;
+}
+    .cart-buyall {
+        background-color: white;
+        padding: 10px;
+        border-radius: 20px;
+        width: 90px;
+        border-width: 4px;
+        border-radius: 20px;
+        border-color: orange;
+    }
+
+.cart-buyall:hover {
+    background-color: orange;
+}
+    .cart-det-remove-btn {
+    background-color:wheat;
+    margin-left: 25%;
+    margin-top: 10px;
+    padding: 5px;
+    width: 70px;
+    border-width: 4px;
+    border-radius: 20px;
+    border-color: red;
+}
+.cart-det-remove-btn:hover {
+    background-color: red;
+}
+    .order-now {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    font-size: 14px;
+    border-radius: 20px;
+    /*margin-left: 25%;*/
+    border-width:4px;
+    border-color:lightblue;
+}
+.order-now:hover {
+    background-color:lightblue;
+}
+ .order-cancel:hover {
+            background-color: red;
+        }
+.buy-cancel {
+    width: 27%;
+    padding: 10px;
+    background-color: white;
+    font-size: 14px;
+    border-radius: 20px;
+    border-color: red;
+    border-width: 4px;
+    margin-left: 37%;
+}
+
+
+    .buy-cancel:hover{
+        background-color:red;
+    }
+    .order-textbox {
+        border: none;
+    }
+.cart-del-table {
+    margin-left: 5%;
+    margin-right: 5%;
+    border-collapse: collapse;
+    text-align: center;
+}
+.cart-price{
+    width:5%
+}
+
+.cart-quantity {
+    width: 150px;
+}
+.password-chnage-btn {
+    margin-top: 20px;
+    width: 90px;
+    padding: 10px;
+    background-color: white;
+    margin-left: 30px;
+    border-radius: 20px;
+    border-width: 4px;
+    border-color: lightblue;   
+}
+
+.password-chnage-btn:hover{
+    background-color:lightblue;
+}
+/*for responsive*/
+@media screen and (max-width: 600px) {
+    body {
+        display: inline-block; /* for smaller screens */
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        right: 10px;
+    }
+
+    .book-display {
+        margin-right: 200px;
+    }
+}
+
+   
